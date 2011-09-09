@@ -49,16 +49,16 @@ body {
 	margin:0;
 }
 
-p a, a:visited {
+p a, p a:visited, ul a, ul a:visited {
 	font-weight:bold;
 	color:rgb(150,200,255);
 	text-decoration:none;
 }
-p a:hover, p a:visited:hover {
+p a:hover, p a:visited:hover, ul a:hover, ul a:visited:hover {
 	border-bottom:rgb(120,220,200) 2px solid;
 	color:rgb(120,220,200);
 }
-p a:active, p a:visited:active {
+p a:active, p a:visited:active, ul a:active, ul a:visited:active {
 	border-bottom:rgb(220,180,180) 2px solid;
 	color:rgb(220,180,180);
 }
