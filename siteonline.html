@@ -1,3 +1,8 @@
+<!--
+	This is the FINAL page of explainations. If you haven't read index or localamp already, I
+	suggest you do that now, because this document assumes that you have.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,59 +34,68 @@
 				it during our 'online setup days' they've got the instructions laid out in 
 				front of them.</p>
 				
-				<div class=lfloat>
+				<div class="lfloat">
 					<p><em>Before you get started</em><br />
 					You're going to need a few tools:</p>
 					
-					<ul class=none>
+					<ul class="none">
 						<li>
-							<a href=http://filezilla-project.org/download.php?type=client>FileZilla</a>
+							<strong><a href="http://filezilla-project.org/download.php?type=client">FileZilla</a></strong>
 							or another ftp client<br />
 							<small>FileZilla is an open source ftp (file transfer protocol) client that
 							you can use to move files from your computer to your server.</small>
 						</li>
 						<li>
-							<a href=http://jedit.org>jEdit</a> or another text editor<br />
+							<strong><a href="http://jedit.org">jEdit</a></strong> or another text editor<br />
 							<small>jEdit is going to be used before you even start the hosting
 							process, because you need to make a website before you can host a website.
 							If you already have a website made you can ignore this requirement.</small>
 						</li>
 						<li>
-							A Website<br />
+							<strong>A Website</strong><br />
 							<small>While it may seem self-explanatory, but you do need a website before
 							you can put a website online.</small>
 						</li>
 					</ul>
 				</div>
 				
-				<p><em>Hosting with <strong>
-				<a href=http://000webhost.com>000webhost</a></strong></em><br />
-				<small>The reason we use 000freehosting is simply because their <em>free</em>. If you
-				happen to be willing to spend money or want professional hosting, do so. I can
-				suggest <a href=http://mediatemple.net>MediaTemple</a> and 
-				<a href=http://stuzzhosting.com>StuzzHosting</a> to anyone looking for professional
+				<p><em>Hosting with
+				<a href="http://000webhost.com">000webhost</a></em><br />
+				<small>The reason we use 000freehosting is simply because they're <em>free</em>. 
+				If you happen to be willing to spend money or want professional hosting, do so. I can
+				suggest <a href="http://mediatemple.net">MediaTemple</a> and 
+				<a href="http://stuzzhosting.com">StuzzHosting</a> to anyone looking for professional
 				hosting.</small></p>
 				
 				<ol>
+				<!--
+					I'm fairly certain that this is the only new thing.
+
+					The ol tag (for ordered list) is used to make numbered lists. It works exactly
+					the same as the ul tag, just with numbers instead.
+				-->
+
 					<li>
-						Go to <a href=http://000webhost.com>000's site</a> and sign up for an account and hosting.
-						It make take a minute or two to be processed and ready to go<br />
-						<small>Right now you don't have a domain (unless you set one up separately), so
-						just use one of their second level domains.</small>
+						Go to <a href="http://000webhost.com">000's site</a> and sign up for an 
+						account and hosting. It make take a minute or two to be processed and ready 
+						to go<br />
+						<small>Right now you don't have a domain (unless you set one up separately), 
+						so just use one of their second level domains.</small>
 					</li>
 					<li>
 						Once you've been processed, enter your control panel, the important things are all
-						either in your head or in the sidebar.<br />Copy the Username (it's a followed by a
-						string of numbers), you're going to use this in FileZilla.
+						either in your head or in the sidebar.<br />Copy the Username (it's 
+						<code>a</code> followed by a string of numbers).
 					</li>
 					<li>
 						Open FileZilla if you don't already have it open, and click on the site's icon (the
 						first icon in the toolbar). You should see the Site Manager.<br />
-						<small>You can come back to this later for other sites you setup too. It also has
-						the ability to change FileZilla settings just for one site.</small>
+						<small>You can come back to this later for other sites you setup too. 
+						It also has the ability to change FileZilla settings just for one site.
+						</small>
 					</li>
 					<li>
-						<div class=lfloat>
+						<div class="lfloat">
 							The <strong>Host</strong> is <em>your site's address</em><br /> 
 							Leave the <strong>Port</strong> blank<br />
 							The <strong>Server Type</strong> is <em>FTP - File Transfer Protocol</em><br />
@@ -91,6 +105,11 @@
 						</div>
 						Click on the "New Site" button.<br />
 						<small>The settings are to the left.</small><br />
+						After you fill in those settings, go into the Advanced tab, and find the
+						<code>Default Remote Directory</code> option, and set it to 
+						<code>/publicftp</code>. You're doing this because it will make sure 
+						that when you connect to the site, you're in the right remote directory
+						(the one which holds the files for your site).
 					</li>
 					<li>
 						Don't close out of the Site Manager, but click Connect down at the bottom. This will
@@ -100,27 +119,24 @@
 						button next to the icon, click it and your site to connect, sorry Linux users.</small>
 					</li>
 					<li>
-						<div class=lfloat>
-							<p>You can, if you want, set FileZilla to automatically open the publicftp directory
-							open the site manager, choose the current site, and open the Advanced tab.</p>
-							
-							<p>In the Advanced tab there's a &ldquo;Default remote directory&rdquo; field,
-							change that to <code>/publicftp</code>, and you'll now automatically connect to the
-							publicftp directory</p>
-						</div>
-						
-						The default directory for 000 sites isn't where you're supposed to upload files (in 
-						fact they even put a file called .DONOTUPLOAD in the directory. You need to upload to
-						the publicftp directory. As such, open the publicftp directory, and drag your files from
-						your file browser of choice into the publicftp directory.<br />
-					</li>
-					<li>
 						Now navigate to your site, you should see the site you just uploaded (unless you don't
 						have your home page named index.html, index.php, index.htm, or default in place of index).
 					</li>
 				</ol>
 			</div>
 		</article>
+		<footer>
+			<p>This site was designed and developed by 
+			<a href="http://dkuntz2.com">Don Kuntz</a>
+			for the OPRF Technology Club. It was developed using html5 and css3.</p>
+
+			<p>All code used on this site (and the accompanying photoshop document) are
+			licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>.</p>
+
+			<p>This site, in it's entirety, is available on 
+			<a href="http://github.com/OPRF-Tech/TechWeb">GitHub</a>, for all to use and remix as
+			wanted.</p>
+		</footer>
 	</div>
 </body>
 </html>

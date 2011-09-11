@@ -1,12 +1,114 @@
+/*
+	This is the CSS file that manages the whole site (you can have multiple css files
+	for a single site, but this one doesn't).
+
+	CSS stands for Cascading StyleSheets, which means it's a sheet of styles that reads
+	from top to bottom.
+
+	A difference here from html, comments are not encapsulated by the <!-- comment --> tag,
+	but instead by the slahs (/) star (*) -comment- star (*) slash (/) as seen on lines
+	1 and 11.
+*/
+
 body {
+/*
+	body defines what is being styled, the curly brace "{" tells the browser that
+	it's the beginning of the styles for the thing being styled. (a matching curly
+	brace "}" is used to tell the browser that we're done styling the element).
+*/
+
 	font-family: "Droid Serif", serif;
-	background:url(background.jpg);
+	/*
+		font-family is the thing being styled here. The colon is used after the
+		type of stying being done (in this case, we're defining what the font-face
+		for the body is going to be, or in simpler terms, changing the font used
+		on the whole page). Everything after the colon, but before the semicolon
+		is the value of the element.
+
+		What the above line (20) does is tell the browser that the entire page
+		should be rendered in the font "Droid Serif", and if that font can't be
+		found, use the default serifed font for the system.
+
+		The way font-face works is that you can't just use any font you want, but
+		only fonts that are installed on the viewer's computer. You can define any
+		font you want, but the only way for it to be rendered on the visitor's 
+		screen is for them to either have the font installed or to ues a web service
+		or other method (I'm not going to get into those here).
+
+		The way this page is able to display Droid Serif to everybody is by using
+		the Google Web Fonts service (http://google.com/webfonts), which is providing
+		the font for any visitor.
+	*/
+
+	background: url(background.jpg);
+	/*
+		background defines the background image. There are more options for the 
+		background element, but only one is used here because the defaults for them
+		are fine.
+
+		This definition is telling the browser that we want to use the file 
+		'background.jpg' (which is relative to the css document, see the index file
+		for more information on relative vs absolute file addresses) to be used as
+		the background of the entire page, and we want it to repeat both accross the
+		x- and y-axis.
+	*/
+
 }
 
 #container {
+/*
+	The pound ( # ) before the word container tells us that we're styling
+	the ID container (or in html, we're styling <div id="container">).
+*/
+
 	width:920px;
+	/*
+		This sets the width of the container to 920 pixels. One pixel is the
+		smallest unit of measurement you can use on a web page. By setting the
+		width of the page, we're saying that all of the content has to fit inside
+		of that width.
+	*/
+
 	margin:50px auto 0;
+	/*
+		margin sets the amount of space between different sides of the box
+		(read up on the css box-model at http://css-tricks.com/2841-the-css-box-model/).
+
+		Margin and Padding are similar in that they can take the same inputs, in the same
+		order. They can have one, two, three, or four values.
+
+		If only one value is given, every side gets the same margin (the value).
+			example: margin:50px; - that gives every side a 50 pixel margin
+		
+		If two values are given, the first is the top and bottom, and the second is
+		the left and right.
+			margin:50px 100px; - the top and bottom of the box get a margin of 50 pixels
+				and the left and right get a margin of 100 pixels
+		
+		If three values are given (like here), the first value is the top, the second value
+		is the left and right, and the third value is the bottom.
+			margin:50px auto 0; - the top of the box has a margin of 50 pixels, the left
+				and right get an auto margin (see below), and the bottom has a margin of
+				zero pixels.
+		
+		If four values are given, the values start at the top and go clockwise.
+			margin:10px 20px 30px 40px; - the top has a margin of 10 pixels, the right
+				has a margin of 20 pixels, the bottom has a margin of 30 pixels, and the
+				left has a value of 40 pixels.
+
+		Using the auto value:
+			left and right set to auto : Centers the box insdie of it's parent
+			left : places the right edge of the box along the right side of the screen
+			right : places the left edge of the box along the left side of the screen
+	*/
+
 	padding:0 20px;
+	/*
+		Read on the margin, above. It's the same, but for the padding
+		(see the link in the margin's explaination for information on the
+		box-model).
+	*/
+
 }
 
 #oprftech {
@@ -49,23 +151,23 @@ body {
 	margin:0;
 }
 
-p a, p a:visited, ul a, ul a:visited {
+p a, p a:visited, li a, li a:visited {
 	font-weight:bold;
 	color:rgb(150,200,255);
 	text-decoration:none;
 }
-p a:hover, p a:visited:hover, ul a:hover, ul a:visited:hover {
+p a:hover, p a:visited:hover, li a:hover, li a:visited:hover {
 	border-bottom:rgb(120,220,200) 2px solid;
 	color:rgb(120,220,200);
 }
-p a:active, p a:visited:active, ul a:active, ul a:visited:active {
+p a:active, p a:visited:active, li a:active, li a:visited:active {
 	border-bottom:rgb(220,180,180) 2px solid;
 	color:rgb(220,180,180);
 }
 
 footer {
 	width:330px;
-	margin-top:-4.95em;
+	margin-top:-14.3em;
 	color:rgb(255,255,255);
 	font-size:.8em;
 	line-height:1.9em;
@@ -77,65 +179,6 @@ footer p {
 	margin:0;
 }
 
-/* *amp server page */
-#big2 {
-	width:500px;
-	font-size:18pt;
-	float:left;
-	margin:5px 20px 0px 0;
-	color:rgb(255,255,255);
-	text-align:justify;
-	text-justify:right;
-	font-family: "Droid Serif", serif;
-	line-height:1.4em;
-	overflow:hidden;
-	display:inline;
-}
-
-#big2 blockquote {
-	font-size:12pt;
-	word-spacing:-.1em;
-	margin:.5em 0 .5em 3em;
-}
-#big2 li {
-	font-size:12pt;
-	line-height:1.5em;
-	padding-bottom:1em;
-}
-#big2 small {
-	font-size:9.6pt;
-	line-height:1.9em;
-}
-#big2 ul {margin-bottom:0;}
-
-h1 {
-	font-size:1.3em;
-	line-height:1em;
-	margin-top:0;
-	padding-top:0;
-}
-
-#normal2 {
-	width:370px;
-	color:rgb(255,255,255);
-	margin-left:520px;
-	padding-top:100px;
-	line-height:1.5em;
-	margin-bottom:0;
-	padding-bottom:0;
-	text-align:justify;
-}
-#normal2 p {
-	padding-bottom:1em;
-	margin:0;
-}
-#normal2 blockquote {
-	margin:0;
-	padding:.5em 0em .5em 2em;
-}
-#normal2 li {
-	padding-bottom:1em;
-}
 code {
 	font-family:"Droid Sans Mono", monospace;
 	font-size:.9em;

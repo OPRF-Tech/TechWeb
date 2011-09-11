@@ -1,9 +1,33 @@
+<!-- 
+	I'm making an assumption here: You've read through the notes on the index page.
+	If you haven't read through the notes on the index, do it now. NOW!
+
+	In keeping with said assumption, I'm going to skip over anything that's the same in
+	the index page (which makes this page much lighter in both size and comments. If you 
+	have a question on something here, check the index first, than ask.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>A Local *AMP Server | OPRF Tech | The OPRF HS Technology Club</title>
+	<!--
+		You don't need to use pipes ( | ) in your title, it's done here as a nice
+		divider of what the page is, in this format:
+			[page name] | [organization] | [what the org stands for]
+	-->
+
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+	<!--
+		This is similar to the first one (line 14), but it gets a different font, Droid
+		Sans Mono, which is a monospaced font used for displaying the code/terminal text.
+
+		The reason it isn't included in the index is to cut down on size (even if it's just a
+		tiny bit, and negated now that all of the comments are in there, but the site was
+		created without the comments originally)
+	-->
+
 	<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
@@ -22,6 +46,12 @@
 				<span class="noshow">
 					abiglongstringtobehiddenfromsightandsite
 				</span>
+				<!--
+					I thought it was kinda clever, the text that isn't being shown, because 
+					it isn't shown in sight, and if you copy the text from the big to the 
+					little, that string doesn't get copied. Read in the CSS for more information
+				-->
+
 			</div>
 
 			<div id="normal">
@@ -30,13 +60,37 @@
 				to test on.</p>
 
 				<div class="lfloat">
+				<!--
+					This div uses a class instead of an id. The difference between them
+					is simple, a div can only be used once per page, where a class can
+					be used as many times as you want on each page (the lfloat class is used
+					several times throughout the siteonline file).
+				-->
+
 					<small>
+					<!--
+						This makes the text small (in this case, 4/5s of the size of the normal
+						text, but that can be changed in the css).
+					-->
+
 						<p><em>Some Answers to Questions:</em><br />
+						<!--
+							The em tag (for emphasis) is used to italicize text.
+						-->
 						You may have some questions, there might be some terminology you
 						don't understand, and this section might have your answers</p>
 
 						<ul>
+						<!--
+							The ul tag (for unordered list) is used to create bulleted lists.
+						-->
+
 							<li>
+							<!--
+								The li tag (for list item) is used to create a new item inside of your list, so in this case, a new bulleted item. Everything inside 
+								of hte li tag is part of that item.
+							-->
+
 								<strong>What does *AMP stand for?</strong><br />
 								AMP stands for <em><strong>A</strong>pache</em> (the actual
 								server software), <em><strong>M</strong>ySQL</em> (database
@@ -74,7 +128,13 @@
 							</li>
 						</ul>
 					</small>
-				</div>
+				</div><!-- end of lfloat for FAQ -->
+
+				<!--
+					Everything between this and the end of the normal div is the main content
+					for the page, this is the big stuff, the information on setting up a local
+					*AMP server.
+				-->
 
 				<p><em>LAMP - Linux (Debian Baesd)</em><br />
 				<small>
@@ -86,12 +146,27 @@
 				<ul>
 					<li>Open your terminal and type the following:<br />
 						<blockquote><code>
+						<!--
+							The blockquote tag is used to indent something. The code tag
+							is used to specifiy that something is code, in this case, something
+							you'd type into a linux terminal (or virtual terminal).
+
+							The blockquote is generally used either for just indenting something
+							or an actual quote from someone, if it's used with the code tag, it's
+							used to keep the code as a block, instead of inline (you can use
+							the cde tag inline with a paragraph if you want).
+						-->
+
 							sudo apt-get install apache2 php5 php5-gd mysql-server mysql-client
 							php5-mysql libapache2-mod-php5 php5-curl php5-xmlrpc php-pear
 						</code></blockquote>
 					</li>
 					<li>
 						Bravo! You've now got a LAMP server installed, your <code>www</code>
+						<!--
+							So here's one of those nice examples of using the code tag inline.
+						-->
+
 						directory (the one that holds all of the files for your local server)
 						is located at <code>/var/www</code>. You may want to run another command
 						to change the premissions to let you modify files inside of it<br />
@@ -157,12 +232,21 @@
 						(this is both where you're going to keep your files and where the 
 						server files are located), I suggest using C:\Users\[your name]\localhost.
 					</li>
-					<li>
-						
-					</li>
 				</ul>
 			</div>
 		</article>
+		<footer>
+			<p>This site was designed and developed by 
+			<a href="http://dkuntz2.com">Don Kuntz</a>
+			for the OPRF Technology Club. It was developed using html5 and css3.</p>
+
+			<p>All code used on this site (and the accompanying photoshop document) are
+			licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>.</p>
+
+			<p>This site, in it's entirety, is available on 
+			<a href="http://github.com/OPRF-Tech/TechWeb">GitHub</a>, for all to use and remix as
+			wanted.</p>
+		</footer>
 	</div>
 </body>
 </html>
