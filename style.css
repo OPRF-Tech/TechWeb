@@ -35,6 +35,13 @@ body {
 		screen is for them to either have the font installed or to ues a web service
 		or other method (I'm not going to get into those here).
 
+		After you define which specific fonts you want, you can (and should) also
+		define their family, serif (the ones with little lines coming off of the ends,
+		like Droid Serif, Times New Roman or Garamond), sans-serif (they don't have
+		the lines, like Helvetica, Arial and Droid Sans) or monospaced (fonts that
+		are fixed width (each character takes up the exact same space, like a 
+		typewriter), like Courier Nueue, Monaco or Droid Sans Mono).
+
 		The way this page is able to display Droid Serif to everybody is by using
 		the Google Web Fonts service (http://google.com/webfonts), which is providing
 		the font for any visitor.
@@ -112,52 +119,198 @@ body {
 }
 
 #oprftech {
+/*
+	This is used to define the oprftech id's object (or the image that
+	says OPRF Tech on it).
+*/
+
 	height:77px;
+	/*
+		This sets the height of the item to 77 pixels, meaning that it can't take up
+		more space than that. It's specified for this item because it floats (see below).
+	*/
+
 	margin:26px 0 36px;
 	float:right;
+	/*
+		Floats are fairly common nowadays in css. Floating an item is similar to, in
+		Microsoft Word or LibreOffice, making an image squared with the text. It makes
+		the box of the item being floated either set to be left or right of the content
+		that follows. See how it's done on the pages.
+
+		Float has three options, the default is none (which is the same as not even putting
+		in the float option), right or left, depending on which side of the following content
+		you want it to be on.
+	*/
+
 	clear:both;
+	/*
+		Clearning means that nothing that follows it in the html can go to the specified
+		value (the three options for the value are right, left, or both). In this case, it
+		means that anything that comes after it can't be to the right or left of it on the
+		screen.
+
+		If you used left or right instead of both, content could appear on the opposite
+		side as you've specified.
+	*/
 }
 
 #big {
+/*
+	This is the definition for the larger sized text seen at the beginning of pages.
+*/
+
 	width:500px;
 	font-size:18pt;
+	/*
+		font-size specifies the size of the text, the units you can use are pixels,
+		points (1 point = 1/72 inches) or em (a scalable unit based on the parent's
+		size, where 1em is equal to the same size as the parent).
+	*/
+
 	float:left;
 	margin:0 20px 0px 0;
 	color:rgb(255,255,255);
+	/*
+		color specifies the font color. You can use hex (#000000 - #ffffff), words
+		(like black, white, green, aqua, blue, red, ect) or rgb (a better method for 
+		trying to mix colors - rgb(0-255,0-255,0-255)).
+	*/
+	
 	text-align:justify;
-	text-justify:right;
+	/*
+		text-align is just like the alignment in a word processor, your options are
+		left (default), right, centered or justified. Justified means that the text
+		takes up all of the available space by dynamically changing the amount of 
+		space between words, creating a distinct left and right edge of the text
+		(instead of the jagged text of left/right/centered).
+	*/
+
 	font-family: "Droid Serif", serif;
 	line-height:1.4em;
+	/*
+		line-height is used to set the height of each line (like in a word processor).
+		It can use the same units as font-size, in this case it uses em, making it 
+		1.4 times the height of the font size (or 1.4*18 = 25.2pt).
+	*/
+
 	max-height:8em;
+	/*
+		This sets a maximum height. Similar to setting the height, but instead of
+		making it exactly a certain height, it can't get bigger than this height.
+		
+		It's used here to make sure you don't have too many lines of text in the
+		bigtext area.
+	*/
+
 	overflow:hidden;
-	display:inline;
+	/*
+		overflow controls what happens to the content that goes outside of the specified
+		box. The options are visible (default - it still shows it and nothing happes), 
+		hidden (it just isn't shown at all, it disappears), or scroll (which adds in a
+		scrollbar to the box).
+
+		It's used here to make sure that any text that goes over the box doesn't show up
+		on the page and force only a few lines in the bigtext div.
+	*/
+
 }
 
 .noshow {
+/*
+	A period ( . ) before a word means that you're defining a class, or in html
+	<span class="noshow"> (you could use a different element than span, but it's 
+	used here because it's also used in the html the same way).
+*/
+
 	visibility:hidden;
+	/*
+		visibility controls if the item is shown on the page, read by a screen-reader,
+		copied when the sections before and after it are selected and pretty much
+		just says whether or not the content means anything to the page.
+
+		If something is wrapped in noshow, that means it doesn't exist anywhere but the
+		html code for all intents and purposes.
+
+		The only other option for visibility is the default of visible.
+	*/
+
 }
 
 #normal {
 	width:500px;
 	color:rgb(255,255,255);
 	margin-left:390px;
-	padding-top:100px;
-	line-height:1.5em;
+	/*
+		Just like how you can use margin: value1 value2 value3 value4; you can also use
+		margin-(top/right/bottom/left) to control a specific margin, same with padding.
+
+		Again, if you haven't yet, read up on the box model, see the link on line 82
+	*/
+
 	margin-bottom:0;
 	padding-bottom:0;
+	padding-top:100px;
+	line-height:1.5em;
 }
 #normal p {
+/*
+	When you have two items in your selector, it means that the second (or third, or
+	fourth, and so on down however far) must be inside of the item before it (in this
+	case, we're selecting paragraphs inside of the normal div).
+*/
+
 	padding-bottom:1em;
 	margin:0;
 }
 
 p a, p a:visited, li a, li a:visited {
+/*
+	Using a comma in a selector is akin to defining each value between commas as
+	their own definition, but making them all the same (that doesn't sound very
+	good but it was the best I could do).
+
+	In this case, we're styling all anchors inside of a paragraph, all 
+	visited anchors inside of a paragraph, and the same two before, but inside of
+	a list item instead of a paragraph (four items are being styled with one defintion).
+
+	Things after a colon in a selector are called psuedo-classes. The big ones are
+	all for anchors (links), and they're :visited (for a link that you've visited 
+	previously), :hover (for when your cursor is over it (it can be used on non-links
+	too)) and :active (for when you're clicking on the link (can also be used on
+	non-links)).
+*/
+
 	font-weight:bold;
+	/*
+		The font weight is generally either normal or bold. If you get more advanced
+		and start importing your own fonts (I'm not getting into it here), you may
+		use a numbering system, but don't worry about it.
+	*/
+
 	color:rgb(150,200,255);
 	text-decoration:none;
+	/*
+		text-decoration is just decorating the text, the main options are none, underline,
+		overline (a line over the text) or line-through (a strikeout). There are some
+		other ones, but most people don't use them frequently, if at all.
+	*/
 }
+
 p a:hover, p a:visited:hover, li a:hover, li a:visited:hover {
 	border-bottom:rgb(120,220,200) 2px solid;
+	/*
+		Borders are like margins and padding, you can define a global one (for all
+		sides of your box) or individual ones. In this case, it's just a border 
+		underneath the item.
+
+		borders accept the following options: color size type.
+
+		The color and size are self-explainitory, the types available are solid (for
+		a solid line), dashed (for a dashed line) or none (which would be slightly
+		useless, and exactly like not defining a border).
+	*/
+
 	color:rgb(120,220,200);
 }
 p a:active, p a:visited:active, li a:active, li a:visited:active {
