@@ -1,257 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<!--
-		Okay, first things first, THIS (and by this I mean the text inside of the two brakets on line
-		5 and 31) is a comment. That means that the browser doesn't read this, it's just for 
-		humans like you and me, so we can see what's going on where.
-
-		You don't need to comment all of your code (especially if you write semantic code), but
-		I'm doing so simply so that people can read what's going on with this site.
-
-		Some notes about the code above:
-			The <!DOCTYPE html> tag declares that this file is an html document, it's needed to 
-			tell the browser that this file is using HTML5 in some cases.
-
-			The <html> tag starts off your page, telling it that what you're writing is in html
-			I know, it seems a little redundant after the first line, but the browser wants to see
-			it.
-
-			The <head> tag starts off telling the page that you're defining the files header, you're
-			adding in all of the nice meta required to make the page look pretty and function well.
-			I'll get into that later in the head.
-
-		On another note, these files are going to be slightly larger in size than normal html files
-		because they have lots of comments.
-
-		Also, take note of how I use tabs. They're useful for keeping your files nice and readable
-		by humans, browsers don't care about how you write the code, just so long as it's written,
-		other humans care because they have to read it, so keep your code nice and pretty.
-	-->
-
 	<title>OPRF Tech | The OPRF HS Technology Club</title>
-	<!--
-		The <title> tag is used to define the page's title, just like it says. The title is displayed
-		at the top of the browser generally (on http://google.com it says "Google", that's because
-		the title tag is defined as 'Google').
-
-		Sidenote: You don't have to have the opening and closing comment tag on different lines of 
-		the comment, I just do it to add in a little space.
-	-->
-
 	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' />
-	<!-- 
-		A <link> is used to link something to your page. In this case, I'm linking a 'stylesheet' (as
-		defined in the rel attribute (attributes are the things inside of tags that start attbr=...)),
-		and it's file type is a 'text/css' file (as defined by the type attribute). The actual file
-		being linked to is defined by the href attribute, in this case the long google webfonts
-		address.
-
-		This link is used to add the Droid Serif font to the page (if you look at the style.css file 
-		you'll find that Droid Serif is used all over the place). I'll explain why this is linked
-		here instead of just defining that the page should be in Droid Serif in the stylesheet 
-		(style.css)
-
-		The link tag is a self-closing tag, that means that instead of being <link attributs></link>,
-		it just uses <link ... attributes ... /> instead.
-	-->
-
 	<link rel="stylesheet" href="style.css" type="text/css" />
-	<!--
-		This is another link, some pages have lots of links, some have fewer. This one is used
-		to link the stylesheet (written in css, hence the type attribute). Also shown with this
-		tag is that it doesn't matter what order your attributes are in (compare the order for this
-		one and the previous one), just that they're in there.
-	-->
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 </head>
-<!--
-	This is the end of the head, now that all of the required meta data has been added
-	to the site, you can start working on the actual appearance of the site itself.
--->
-
 <body>
-<!--
-	The body tag is used to define the start and end of the body of your page. The body is the meat
-	of your page, where all of the content is.
--->
-	<div id="container">
-	<!--
-		A div tag (for divider) is used to define a section of the page, in this case, I'm
-		making a div to contain the entire site.
 
-		The id attribute can be used with any tag in the body, but it can only be used once
-		per page (so this is the only "container" on the whole page, but there's another container
-		on another page).
+<div id="container">
 
-		The id helps tell the stylesheet that this is the section to style as defined. I'll talk
-		more about stylesheets in the stylesheet itself.
-	-->
+</div>
 
-		<img src="oprftech.png" alt="OPRF Tech | The OPRF HS Technology Club" id="oprftech" />
-		<!--
-			An img (for image) tag is used to display an image on the page.
+<script>
+	loadPage();
 
-			The src attribute defines the path (either absolute or relative, see below) to the
-			image you want to display.
+	function loadPage () {
+		var h = $(location).attr('hash').replace("#", "");
+		
+		if (h == "") {
+			h = "main";
+		}
 
-			the alt attribute is used to define alternative text so that if someone is using a
-			screen reader, or if the image doesn't load, there's some text for people to get
-			a sense of what's supposed to be there.
+		h = h + ".html";
+		$.get(h, function (data) {
+			$("#container").html(data);
+		});
+	}
 
-			A path is the location of a file. A relative path means that you're defining where
-			the file is in relation to the current file (so in this case, index.html), an absolute
-			path means that you're defining where the file is absolutely.
-			
-			Example of relative location:
-				file.jpg 				file.jpg is in the same directory as the current file
-				dir/file.jpg			dir is in the same directory as the current file
-			
-			Examples of absolute location:
-				/file.jpg 						file.jpg is located at http://domain.tld/file.jpg
-				http://oprftech.co.cc/file.jpg 	file.jpg is located at http://oprftech.co.cc/file.jpg
-		-->
+	$('#main').click(function () {
+		$.get("main.html", function (data) {
+			$("#container").html(data);
+		})
+	});
+	
+	$('#localamp').click(function () {
+		alert("clicked localamp");
+		//$('#container').load("localamp.html");
+		$("#container").hide();
+	});
 
-		<article>
-		<!--
-			The article tag is a new-ish tag with HTML5, it's used to define the
-			article or section of the page that contains the useful content.
-		-->
+	$('#siteonline').click(function () {
+		$('#container').load("siteonline.html");
+	});
 
-			<div id="big">
-			<!--
-				This is a div used to define the large text seen on the page. To
-				get it to work, you manually have to make sure that the text fits,
-				if it doesn't, you'll need to change how much text you use.
-			-->
-
-				<p>We are the Oak Park and River Forest High School Technology Club 
-				(OPRF Tech). We are an organization interested in learning and sharing knowledge about all aspects of technology, from computers to robots.
-
-				<span class="noshow">
-					abigstringoftextthatshouldnotdisplayeverandifitdoessomethingbroke
-				</span>
-				<!--
-					A span tag is used for an inline style, as in, something that
-					happens inside of another box (read about the css box model, 
-					more information in the stylesheet). This span is used to make
-					sure that all of the big text stays in a block.
-				-->
-
-				</p>
-				<!--
-					The p tag (for paragraph) is used for paragraphs (no really!).
-				-->
-
-			</div>
-			<!--
-				This is the closing tag of the <div id="big">, on line 122. It's
-				used to say that you're now done putting things inside of the div.
-				Everything between this and line 110 is part of the 'big' div.
-			-->
-
-			<div id="normal">
-			<!--
-				This div is used to contain everything else. It's called normal simply
-				becaue compared to the big text, everything in here is normal.
-			-->
-
-				<p>This section is filler, but important filler. The blurb that goes here is the thid thing that a visitor reads, following the title and giant blurb.</p>
-				<!--
-					Again, a paragraph. Please note that the copy here is not mine, but
-					the current staff's. Mine was WAY better (insert sarcasm here).
-				-->
-
-				<p><strong>Our Board:</strong><br />
-				<!--
-					Another paragraph, but this line has two new things in it, the 
-					strong and br tags.
-
-					The strong tag is used to make something bold, or strong.
-
-					The br tag is a self-closing tag used to define a line-break (br
-					for break). It's the semantic way to create a new line without
-					space after it.
-				-->
-
-				Co-Presidents: <a href="http://greenguygames.co.cc/">Tom Jozefowicz</a>
-				<!--
-					The a (for anchor) is used to make links, either absolute or relative
-					(see line 103 for more information on paths), anything inside of the
-					<a> ... </a> pair is the text/content that is linked.
-
-					The href attribute is used to define the web address of where the link
-					is supposed to send the visitor.
-				-->
-
-				and <a href="http://tinyworkshop.org">Jeremy Bloyd-Peshkin</a><br /> 
-				Systems Administrator: <a href="http://tinyworkshop.org">Jeremy Bloyd-Peshkin</a></p>
-
-				<p>Our Sponsor for the 2011 school year is Mr. Michalek of the Applied Technolgy 
-				Department</p> 
-
-				<p>One of the programs we have setup for members is free website hosting, You can see some of out members' sites once they make them.</p> 
-				
-				<p>Another program we have setup is complementary google apps. Members can access  
-				<a href="http://mail.oprftech.co.cc">Mail</a>, 
-				<a href="http://cals.oprftech.co.cc">Calendars</a>, and 
-				<a href="http://docs.oprftech.co.cc">Docs</a> 
-				with <a href="http://google.com">Google's</a> power and precision.</p> 
-				
-				<p>We also have some instructional pages to whet your appetite:
-				<a href="localamp.html">Setting up a local *AMP server</a>, or
-				<!--
-					This link (and the next one) uses a relative path, sending you to another
-					page that's part of this site, in this case the localamp.html page.
-				-->
-				 
-				<a href="siteonline.html">Getting your own website online</a>.
-
-			</div> <!-- end normal -->
-			<!--
-				This is the end of the 'normal' div. Some people write comments to help
-				them read the code in the future like the above one (line 211 after </div>).
-			-->
-
-		</article>
-		<!--
-			This is the end of the article, saying that this is the end of the really nice
-			content and information on this page.
-		-->
-
-		<footer>
-		<!--
-			The footer tag is generally used to show additional content and notices. Here it's
-			used to note who made the site, for what, and how it was developed.
-		-->
-
-			<p>This site was designed and developed by 
-			<a href="http://dkuntz2.com">Don Kuntz</a> <!-- Hey, that's me! -->
-			for the OPRF Technology Club. It was developed using html5 and css3.</p>
-
-			<p>All code used on this site (and the accompanying photoshop document) are
-			licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>.</p>
-
-			<p>This site, in it's entirety, is available on 
-			<a href="http://github.com/OPRF-Tech/TechWeb">GitHub</a>, for all to use and remix as
-			wanted.</p>
-		</footer>
-		<!--
-			End of the footer.
-		-->
-
-	</div>
-	<!--
-		End of the 'content' div.
-	-->
+</script>
 </body>
-<!--
-	This closes up the body, meaning that everything after this is not going to be shown on the page.
--->
-
 </html>
-<!--
-	And this closes the html, saying that the page is done, and there isn't anything else. 
-	Essentailly, "And that's all she wrote".
--->
