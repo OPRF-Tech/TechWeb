@@ -37,13 +37,17 @@
 	
 	$('#localamp').click(function () {
 		alert("clicked localamp");
-		//$('#container').load("localamp.html");
-		$("#container").hide();
+		$('#container').load("localamp.html");
+		//$("#container").hide();
 	});
 
 	$('#siteonline').click(function () {
 		$('#container').load("siteonline.html");
 	});
+
+	$("a").click(function(event) {
+		loadPage();
+	})
 
 </script>
 </body>
