@@ -1,153 +1,164 @@
-<!doctype html>
-<html>
-<head>
-	<title>A Local *AMP Server | OPRF Tech | The OPRF HS Technology Club</title>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-	<link rel=stylesheet href=style.css type=css />
-</head>
-<body>
-	<div id=wrapper>
-		<a href=index.html>
-			<img src="oprftech.png" alt="OPRF Tech | The OPRF HS Technology Club" id=oprftech />
+		<a href="#main">
+			<img src="oprftech.png" alt="OPRF Tech | The OPRF HS Technology Club" id="oprftech" />
 		</a>
 		<br />
 		
 		<article>
-			<div id=big2>
-				<h1>A Local *AMP Server</h1>
-				
-				<em>LAMP - Linux</em><br />
-				<small>
-					Most Linux distros use either apt-get/aptitude or yum. Ubuntu, the distro 
-					we use uses apt-get. This guide is written for an apt-get/aptitude distro (if 
-					you’re using an aptitude distro, replace all instances of apt-get with aptitude
-				</small>
-				<ul>
-					<li>
-						Open your terminal and type the following:
-						<blockquote><code>
-							sudo apt-get install apache2 php5 php5-gd mysql-server mysql-client 
-							php5-mysql libapache2-mod-php5 php5-curl php5-xmlrpc php5-pear
-						</code></blockquote>
-					</li>
-					<li>
-						Bravo, you’ve now got a LAMP server installed. Your www folder (the 
-						directory that contains your web files) is in /var/www, I suggest running 
-						a second terminal command that unlocks that directory perminantly
-						<blockquote><code>
-							sudo chmod -r 0777 /var/www
-						</code></blockquote>
-					</li>
-				</ul>
-				
-				<em>MAMP - Mac</em><br />
-				<small>
-					You need to be running 10.4.0 or higher to use MAMP<br />
-					<strong>MAMP does not load on login</strong>
-				</small>
-				<ul>
-					<li>
-						Head over to <a href=http://mamp.info>http://mamp.info</a>, and download 
-						just the standard mamp (not mamp pro).
-					</li>
-					<li>
-						Drag the MAMP file out of the dmg and put it in your applications folder.
-					</li>
-					<li>
-						Start MAMP, Start Apache and MySQL
-					</li>
-					<li>
-						Open the Preferences, choose the Ports tab, and change the Apache port to 
-						80 (this is the default port looked at when visiting 127.0.0.1)
-					</li>
-					<li>
-						Now open the Apache tab, change the Document root to something else 
-						(unless you like where it is). I suggest /users/[name]/www (or htdocs 
-						instead of www).
-					</li>
-				</ul>
-								
-				<em>WAMP - Windows</em><br />
-				<small>
-					There are lots of options for windows, however EasyPHP, the one shown here is 
-					the easiest to setup and use. You can also use EasyPHP on a flash drive.<br />
-					<strong>EasyPHP does not load on login - you can tell it to do so if you want through the
-					control panel</strong>
-				</small>
-				<ul>
-					<li>
-						Head over to <a href=http://www.easyphp.org>http://www.easyphp.org</a> and 
-						download EasyPHP (not a module pack).
-					</li>
-					<li>
-						Run the installer when it’s done downloading.
-					</li>
-					<li>
-						Choose a directory you want for it to be installed in (I use 
-						c:\users\[name]\localhost. If you want to do that, after you choose the 
-						localhost folder (which you have to make) remove the \easyphp[version] from 
-						the install location string)
-					</li>
-					<li>
-						I personally change the start menu text from easyphp[version] to just 
-						easyphp, but you can choose whatever you want.
-					</li>
-					<li>
-						Now head over to your chosen directory and run EasyPHP[version].exe
-						
+			<div id="big">
+				There are nigh unlimited reasons to want to have your own local server,
+				one of the biggest ones is simply so that you can create websites using
+				PHP and MySQL without your own web server. Whatever
+
+				<span class="noshow">
+					abiglongstringtobehiddenfromsightandsite
+				</span>
+			</div>
+
+			<div id="normal">
+				<p>your reasons, they're yours, and they're probably good ones, and that's
+				why this guide is here, to get you and your good reasons a local server
+				to test on.</p>
+
+				<div class="lfloat">
+					<small>
+						<p><em>Some Answers to Questions:</em><br />
+						You may have some questions, there might be some terminology you
+						don't understand, and this section might have your answers</p>
+
 						<ul>
 							<li>
-								If you go to 127.0.0.1 and don’t see anything or get an error, 
-								open easyphpdir\conf_files and open httpd.conf in your text editor
+								<strong>What does *AMP stand for?</strong><br />
+								AMP stands for <em><strong>A</strong>pache</em> (the actual
+								server software), <em><strong>M</strong>ySQL</em> (database
+								software that's used by many sites and web based programs) and
+								<em><strong>P</strong>HP</em> (a programming language for the web).
+								The * is used because we don't know what operating system you're
+								running, but the options are L (Linux), M (Mac OS X), 
+								or W (Windows).
 							</li>
 							<li>
-								Now search for 127.0.0.1. If you find any instances that aren’t 
-								commented out (that don’t have a # before them) and aren’t 127.0.0.1:80, 
-								replace them to be 127.0.0.1:80
+								<strong>What is a stack?</strong><br />
+								A stack is a way of describing all of the software together,
+								generally people have a LAMP stack, which is all of the software
+								described above, just with a fancy word after it.
 							</li>
 							<li>
-								Now try going to 127.0.0.1 in your browser again
+								<strong>What is different about a LAMP a MAMP or a WAMP stack?</strong><br />
+								Nothing, other than the operating system they're running on, you
+								can run the same software on each stack. Some configuations may
+								be different (but those are set by both the user and the software
+								being run to host the stack).
+							</li>
+							<li>
+								<strong>Why would I want a *AMP stack?</strong><br />
+								An *AMP server is useful for local development of php/mysql or 
+								higher level web development projects. I essentially gives you a 
+								server to play with that’s only accessible on your computer, so it’s
+								just for you.
+							</li>
+							<li>
+								<strong>How do I know if it works?</strong><br />
+								Open a web browser and head over to 127.0.0.1, if you get any sort 
+								of It Works page, you’re golden (though some may have different 
+								pages shown)
 							</li>
 						</ul>
+					</small>
+				</div><!-- end of lfloat for FAQ -->
+
+				<p><em>LAMP - Linux (Debian Baesd)</em><br />
+				<small>
+					The distribution used by OPRF Tech is Ubuntu, which is based on Debian,
+					and has apt-get. Other distributions may use a different program to fetch
+					new applications (like yum or pacman), in which case, try substituting 
+					apt-get with one of those.
+				</small></p>
+				<ul>
+					<li>Open your terminal and type the following:<br />
+						<blockquote><code>
+							sudo apt-get install apache2 php5 php5-gd mysql-server mysql-client
+							php5-mysql libapache2-mod-php5 php5-curl php5-xmlrpc php-pear
+						</code></blockquote>
+					</li>
+					<li>
+						Bravo! You've now got a LAMP server installed, your <code>www</code>
+						directory (the one that holds all of the files for your local server)
+						is located at <code>/var/www</code>. You may want to run another command
+						to change the premissions to let you modify files inside of it<br />
+						<blockquote><code>
+							sudo chmod -R 0777 /var/www
+						</code></blockquote>
+					</li>
+				</ul>
+
+				<p><em>MAMP - Mac OS X</em><br />
+				<small>
+					You need to be running Tiger (10.4.0) or higher to use MAMP. <br />
+					<em>MAMP does not load at startup/login</em>
+				</small></p>
+				<ul>
+					<li>
+						You'll need to first grab the MAMP app, over at 
+						<a href="http://mamp.info">http://mamp.info</a>, and download just
+						the standard MAMP (you don't need MAMP Pro, unless you want to pay
+						for it).
+					</li>
+					<li>
+						Drag the MAMP.app file out of the DMG and place it in your applications
+						directory.
+					</li>
+					<li>
+						Now you need to tweak a few settings, so open up MAMP and head into
+						the preferenecs.<br /><br />
+						<ul>
+							<li>Under the Ports tab, change the Apache port to 80. 80 is the default
+							port that web browsers look for when visiting a website.</li>
+							<li>Under the Apache tab, change the Document Root to the directory
+							that you'll be using to keep the files for your local server. I
+							suggest using /users/[your name]/www.</li>
+						</ul>
+					</li>
+					<li>
+						Awesome! You've got the server setup, now just open up MAMP and start
+						Apache and MySQL and you're good to go.
 					</li>
 				</ul>
 				
-			
-			
-			
-			</div>
-			
-			<div id=normal2>
-				<h1>FAQ</h1>	
-				<ol>
+				<p><em>WAMP - Windows</em><br />
+				<small>
+					Windows has loads of options, however the easiest (and the one that we're
+					going to ues) is called EasyPHP. If you want to, you can install EasyPHP
+					on a flash drive and take it with you.<br />
+					<em>EasyPHP does not start at startup/login</em>
+				</small></p>
+
+				<ul>
 					<li>
-						What is *AMP?
-						<blockquote>
-							*AMP is * (variable placeholder) Apache MySQL PHP server. The variable 
-							placeholder is for your computer’s operating system, L for Linux (LAMP), 
-							M for Mac (MAMP) and W for Windows (WAMP)
-						</blockquote>
+						You're going to need to nab a copy of EasyPHP. You can get the newest copy 
+						through thier website, 
+						<a href="http://www.easyphp.org">http://www.easyphp.org</a>, but it doesn't
+						work as well as some of the legacy versions. The version I use and suggest 
+						you use is 5.3.2i, which can be 
+						<a href="http://sourceforge.net/projects/quickeasyphp/files/EasyPHP/5.3.2i/">
+						downloaded from the archives</a>.
 					</li>
 					<li>
-						Why do I want One?
-						<blockquote>
-							An *AMP server is useful for local development of php/mysql or higher level 
-							web development projects. I essentially gives you a server to play with 
-							that’s only accessible on your computer, so it’s just for you.
-						</blockquote>
+						Run the installer, pick whatever directory you want to install it in
+						(this is both where you're going to keep your files and where the 
+						server files are located), I suggest using C:\Users\[your name]\localhost.
 					</li>
-					<li>
-						How will I know it's working?
-						<blockquote>
-							Open a web browser and head over to 127.0.0.1, if you get any sort of It 
-							Works page, you’re golden (though some may have different pages shown)
-						</blockquote>
-					</li>
-				</ol>
-				
+				</ul>
 			</div>
 		</article>
-	</div>
-</body>
-</html>
+		<footer>
+			<p>This site was designed and developed by 
+			<a href="http://dkuntz2.com">Don Kuntz</a>
+			for the OPRF Technology Club. It was developed using html5 and css3.</p>
+
+			<p>All code used on this site (and the accompanying photoshop document) are
+			licensed under the <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>.</p>
+
+			<p>This site, in it's entirety, is available on 
+			<a href="http://github.com/OPRF-Tech/TechWeb">GitHub</a>, for all to use and remix as
+			wanted.</p>
+		</footer>
